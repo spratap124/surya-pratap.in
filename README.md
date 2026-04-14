@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# surya-pratap.in
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site for **Surya Pratap** — senior frontend engineer. Built with **Vite**, **React 19**, and **TypeScript**.
 
-Currently, two official plugins are available:
+**Repository:** [github.com/spratap124/surya-pratap.in](https://github.com/spratap124/surya-pratap.in)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Single-page layout: intro, **experience** timeline, **projects** grid with filters, about, contact
+- Content and copy are driven from one config file (`src/config/site.ts`) for easy updates
+- Responsive header navigation with smooth scrolling
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Scripts
 
-## Expanding the ESLint configuration
+| Command        | Description                    |
+| -------------- | ------------------------------ |
+| `npm install`  | Install dependencies           |
+| `npm run dev`  | Local dev server (Vite + HMR)  |
+| `npm run build`| Production build → `dist/`     |
+| `npm run preview` | Serve `dist` locally       |
+| `npm run lint` | Run ESLint                     |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project layout
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  config/site.ts    # Site copy, nav, experience, projects, contact, social
+  components/       # Header, Hero, ExperienceSection, ProjectsSection, etc.
+  App.css           # Layout and section styles
+public/
+  favicon.png
+  projects/         # Project thumbnails
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Customizing content
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Edit **`src/config/site.ts`**: meta title/description, hero, experience entries, project list (including `image` paths under `public/projects/`), contact email, footer quote, and navigation labels.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Deploying
+
+The app is a static SPA. After `npm run build`, deploy the **`dist`** folder to any static host (e.g. GitHub Pages, Netlify, Vercel, Cloudflare Pages). Configure the host to serve `index.html` for client-side routes if you add routing later.
+
+## Tech stack
+
+- [Vite](https://vite.dev/)
+- [React](https://react.dev/)
+- TypeScript · ESLint
