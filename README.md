@@ -29,12 +29,12 @@ src/
   App.css           # Layout and section styles
 public/
   favicon.png
-  projects/         # Project thumbnails
+  screenshots/      # Project screenshot assets (PNG)
 ```
 
 ## Customizing content
 
-Edit **`src/config/site.ts`**: meta title/description, hero, experience entries, project list (including `image` paths under `public/projects/`), contact email, footer quote, and navigation labels.
+Edit **`src/config/site.ts`**: meta title/description, hero, experience entries, project list (including `image` paths under `public/screenshots/`), contact email, footer quote, and navigation labels.
 
 ## Deploying
 
